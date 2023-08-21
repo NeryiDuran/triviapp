@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trivia</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="module" defer src="/api/controllers/main.js"></script>
+</head>
+
+<body>
+    <main>
+        <div class="inicio">
+            <p class="titulo">Bienvenido a la Trivia</p>
+            <p class="texto">Seleccionar los campos para empezar</p>
+            <p class="textoselec">Categoria</p>
+        <div class="caja">
+            <select class="select">
+                <option value="9">Conocimientos Generales</option>
+                <option value="10">Entretenimiento: Libros</option>
+                <option value="11">Entretenimiento: Pelicula</option>
+                <option value="any">Cualquier Categoria</option>
+                <option value="12">Entretenimiento: Musica</option>
+                <option value="13">Entretenimiento: Musicales &amp; Theatres</option>
+                <option value="14">Entretenimiento: Television</option>
+                <option value="15">Entretenimiento: Video Juegos</option>
+                <option value="16">Entretenimiento: Juegos de Mesa</option>
+                <option value="17">Ciencia &amp; Naturaleza</option>
+                <option value="18">Ciencia: Computadores</option>
+                <option value="19">Ciencia: Matematicas</option>
+                <option value="20">Mitologia</option>
+                <option value="21">Deportes</option>
+                <option value="22">Geografia</option>
+                <option value="23">Historia</option>
+                <option value="24">Politica</option>
+                <option value="25">Arte</option>
+                <option value="26">Famosos</option>
+                <option value="27">Animales</option>
+                <option value="28">Vehiculos</option>
+                <option value="29">Entretenimiento: Comics</option>
+                <option value="30">Ciencia: Gadgets</option>
+                <option value="31">Entretenimiento: Anime Japones &amp; Manga</option>
+                <option value="32">Entretenimiento: Dibujos Animados &amp; Animaciones</option>
+            </select>
+        </div>
+            <p class="textoselec">Dificultad</p>
+           <div class="caja">
+            <select class="select">
+                <option value="any">Cualquier Dificultad</option>
+                <option value="easy">Facil</option>
+                <option value="medium">Medio</option>
+                <option value="hard">Dificil</option>
+            </select>
+        </div>
+            <p class="textoselec">Tipo de Pregunta</p>
+        <div class="caja">    
+            <select class="select">
+                <option value="any">Cualquier tipo</option>
+                <option value="multiple">Multiple Respuesta</option>
+                <option value="boolean">Verdadero / Falso</option>
+            </select>
+        </div>
+            <br>
+            <button class="botton"  onclick="window.location.href='/pagtrivia.html'">Empecemos</button>
+        </div>
+
+    </main>
+
+</body>
+<script src="js/myscript.js"></script>
+
+</html>
