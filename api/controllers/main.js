@@ -1,6 +1,6 @@
 import { obtenerTrivia } from "./controllers.js";
 
-const plantillaPregunta = function (
+function plantillaPregunta(
   posicion,
   pregunta,
   tipo,
@@ -12,25 +12,25 @@ const plantillaPregunta = function (
   if (tipo === "boolean") {
     return `<div class="tarjeta-pregunta">
     <p>${posicion}. ${pregunta}</p>
-    <input type="radio" name="respuesta${posicion}">
-    <label>${respuestaCorrecta}</label> <br>
-    <input type="radio" name="respuesta${posicion}">
-    <label>${respuestaIncorrecta[0]}</label> <br>
+    <input type="radio" class="respuesta-correcta" name="respuesta${posicion}" id="respuesta${posicion}-1">
+    <label for="respuesta${posicion}-1">${respuestaCorrecta}</label> <br>
+    <input type="radio" name="respuesta${posicion}" id="respuesta${posicion}-2">
+    <label for="respuesta${posicion}-2">${respuestaIncorrecta[0]}</label> <br>
     </div>`;
   } else {
     return `<div class="tarjeta-pregunta">
     <p>${posicion}. ${pregunta}</p>
-    <input type="radio" name="respuesta${posicion}">
-    <label>${respuestaCorrecta}</label> <br>
-    <input type="radio" name="respuesta${posicion}">
-    <label>${respuestaIncorrecta[0]}</label> <br>
-    <input type="radio" name="respuesta${posicion}">
-    <label>${respuestaIncorrecta[1]}</label> <br>
-    <input type="radio" name="respuesta${posicion}">
-    <label>${respuestaIncorrecta[2]}</label> <br>
+    <input type="radio" class="respuesta-correcta" name="respuesta${posicion}" id="respuesta${posicion}-1" required>
+    <label for="respuesta${posicion}-1">${respuestaCorrecta}</label> <br>
+    <input type="radio" name="respuesta${posicion}" id="respuesta${posicion}-2">
+    <label for="respuesta${posicion}-2">${respuestaIncorrecta[0]}</label> <br>
+    <input type="radio" name="respuesta${posicion}" id="respuesta${posicion}-3">
+    <label for="respuesta${posicion}-3">${respuestaIncorrecta[1]}</label> <br>
+    <input type="radio" name="respuesta${posicion}" id="respuesta${posicion}-4">
+    <label for="respuesta${posicion}-4">${respuestaIncorrecta[2]}</label> <br>
     </div>`;
   }
-};
+}
 
 function enviarFormulario() {
   const categorias = document.getElementById("categorias");
@@ -47,7 +47,6 @@ function enviarFormulario() {
     dificultadSeleccionada,
     tipoSeleccionada
   ).then((data) => {
-    console.log("API:", data.results);
     const formularioPrincipal = document.getElementById("formulario-principal");
     formularioPrincipal.className += " invisible";
 
@@ -70,21 +69,25 @@ function enviarFormulario() {
 
 window.enviarFormulario = enviarFormulario;
 
-document.getElementById("verificarRespuestas").addEventListener("click", function () {
-  let respuestasCorrectas = 0;
-  let respuestasIncorrectas = 0;
+function enviarTrivia(event) {
+  event.preventDefault();
+  const totalPreguntas = 10;
 
   const resultadoPreguntas = document.querySelectorAll(
-    "input[type='radio']:checked"
+    "input[type='radio'][class='respuesta-correcta']:checked"
   );
-  
-  resultadoPreguntas.forEach(function (pregunta) {
-    if (pregunta.value === respuestaCorrecta) {
-      respuestasCorrectas++;  // Incrementa las respuestas correctas
-    } else {
-      respuestasIncorrectas++;  // Incrementa las respuestas incorrectas
-    }
-  });
 
-  alert("Usted tiene " + respuestasCorrectas + " respuestas correctas y " + respuestasIncorrectas + " respuestas incorrectas");
-});
+  const totalPreguntasCorrectas = resultadoPreguntas.length;
+
+  alert(
+    "Usted tiene " +
+      totalPreguntasCorrectas +
+      " respuestas correctas y " +
+      (totalPreguntas - totalPreguntasCorrectas) +
+      " respuestas incorrectas"
+  );
+
+  window.location.href = "/index.html";
+}
+
+window.enviarTrivia = enviarTrivia;

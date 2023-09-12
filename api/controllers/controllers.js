@@ -1,5 +1,5 @@
 export const obtenerTrivia = function (categoria, dificultad, tipo) {
-  let apiURL = `https://opentdb.com/api.php?amount=10`;
+  let apiURL = `https://opentdb.com/api.php?amount=2`;
   apiURL =
     apiURL + `&category=${categoria}&difficulty=${dificultad}&type=${tipo}`;
 
