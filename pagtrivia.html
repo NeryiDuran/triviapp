@@ -5,13 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trivia</title>
     <link rel="stylesheet" href="style.css">
-    <script type="module" defer src="/api/controllers/main.js"></script>
 </head>
 <body>
-    <main class="inicio">
+    <main class="iniciotri">
         <p class="iniciotrivia">Trivia</p>
         <form class="preguntas">
-            <p>¿Which of the following sports is not part of the triathlon?</p>
+            <p> <span id="nombre"></span> ¿Which of the following sports is not part of the triathlon?</p>
             <input type="radio">
             <label>Cycling</label> <br>
             <input type="radio">
@@ -115,5 +114,6 @@
         </form>
 
     </main>
+    <script src="api/controllers/main.js"></script>
 </body>
 </html>
