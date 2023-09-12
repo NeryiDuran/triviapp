@@ -51,7 +51,7 @@ function enviarFormulario() {
     formularioPrincipal.className += " invisible";
 
     const formularioinicial = document.getElementById("formularioinicial");
-    formularioinicial.className = "";
+    formularioinicial.className = formularioinicial.className.replace("invisible", "");
     const formularioPreguntas = document.getElementById("formulario-preguntas");
     const preguntas = data.results;
 
